@@ -1,7 +1,7 @@
 /**
  * @file Matrix.java
- * @author Dimitri Tsampiras
  * @description Generic Matrix Module
+ * @author Dimitri Tsampiras
  * @date April 25, 2020
  */
 
@@ -47,9 +47,58 @@ class Matrix<T> {
 		if (!this.validPoint(p))
 			throw new Error("Invalid point");
 		this.m[p.y][p.x] = t;
-	}
+  }
 
+  /**
+   * Determines the domain of values on the grid of a specified area
+   * @param area sub area of matrix
+   * @param row restricts range of just one column - optional
+	 * @return the domain [min, max] in the sub area
+   */
+  public domain(area: Array<PointT>, row?: number): Interval {
+    let d: Interval = {
+      min: this.width,
+      max: 0
+    }
+    
+    for (let p of area) {
+      if (!row) {
+        if (p.y < d.min) d.min = p.y;
+        if (p.y > d.max) d.max = p.y;
+      } else if (row && p.x == row) {
+        if (p.y < d.min) d.min = p.y;
+        if (p.y > d.max) d.max = p.y;
+      }
+    }
+    
+    return d;
+  }
 
+  
+  /**
+   * Determines the range of values on the grid of a specified area
+   * @param area sub area of matrix
+   * @param column restricts range of just one column - optional
+	 * @return the range (min, max) in the sub area
+   */
+  public range(area: Array<PointT>, column?: number): Interval {
+    let r: Interval = {
+      min: this.height,
+      max: 0
+    }
+    
+    for (let p of area) {
+      if (!column) {
+        if (p.y < r.min) r.min = p.y;
+        if (p.y > r.max) r.max = p.y;
+      } else if (column && p.x == column) {
+        if (p.y < r.min) r.min = p.y;
+        if (p.y > r.max) r.max = p.y;
+      }
+    }
+
+    return r;
+  }
 
   /**
 	 * Determines if a given index is a valid row number
@@ -71,7 +120,13 @@ class Matrix<T> {
 	 * Determines if a given point is valid within the grid
 	 * @return true if point p is a valid point, false otherwise
 	 */
-	public validPoint(p: PointT): boolean {
+	private validPoint(p: PointT): boolean {
 		return this.validRow(p.y) && this.validCol(p.x);
 	}
+}
+
+
+interface Interval {
+  min: number;
+  max: number;
 }
