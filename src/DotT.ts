@@ -2,7 +2,7 @@
  * @file DotT.java
  * @description Defines an enumerable type for Dot colors
  * @author Dimitri Tsampiras
- * @date April 1, 2020
+ * @date April 24, 2020
  */
 
 
