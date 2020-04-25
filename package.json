@@ -1,0 +1,22 @@
+{
+  "name": "two-dots",
+  "version": "1.0.0",
+  "description": "Two Dots game source code",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dimitritsampiras/two-dots.git"
+  },
+  "author": "Dimitri Tsampiras",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dimitritsampiras/two-dots/issues"
+  },
+  "homepage": "https://github.com/dimitritsampiras/two-dots#readme",
+  "dependencies": {
+    "jest": "^25.4.0"
+  }
+}
