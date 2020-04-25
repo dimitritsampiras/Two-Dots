@@ -1,3 +1,13 @@
+/**
+ * @file PointT.java
+ * @description Template module for a point on a 2D grid
+ * @author Dimitri Tsampiras
+ * @date April 24, 2020
+ */
+
+ /**
+  * PointT class
+  */
 class PointT {
   readonly x: number;
   readonly y: number;
