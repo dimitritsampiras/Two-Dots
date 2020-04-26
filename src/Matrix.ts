@@ -5,10 +5,13 @@
  * @date April 25, 2020
  */
 
+import { PointT } from "./PointT";
+import { Interval } from "./Interval"
+
  /**
   * Generic Matrix class
   */
-class Matrix<T> {
+export class Matrix<T> {
 
   readonly width: number;
   readonly height: number;
@@ -123,10 +126,4 @@ class Matrix<T> {
 	private validPoint(p: PointT): boolean {
 		return this.validRow(p.y) && this.validCol(p.x);
 	}
-}
-
-
-interface Interval {
-  min: number;
-  max: number;
 }
