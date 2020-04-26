@@ -5,12 +5,15 @@
  * @date April 25, 2020
  */
 
+import { PointT } from "./PointT";
+import { Matrix } from "./Matrix";
+import { DotT } from "./DotT"
 
 /**
  * GameBoardT
  * @detaisl extends Matrix class
  */
-class GameBoardT extends Matrix<DotT> {
+export class GameBoardT extends Matrix<DotT> {
 
   /**
    * @brief Constructor for Gamboard 
