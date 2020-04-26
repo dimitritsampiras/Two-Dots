@@ -1,19 +1,13 @@
 /**
  * @file DotT.java
- * @description Defines an enumerable type for Dot colors
+ * @description Defines a type for Dot colors
  * @author Dimitri Tsampiras
  * @date April 24, 2020
  */
 
 
-/**
- * DotT enumerable
- */
-enum DotT {
-  Red = "R", 
-  Blue = "B", 
-  Green = "G", 
-  Orange = "O"
-}
 
-console.log(DotT.Red);
+/**
+ * DotT type
+ */
+export type DotT = "Red" | "Blue" | "Green" | "Orange";
