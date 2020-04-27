@@ -15,8 +15,17 @@
   "bugs": {
     "url": "https://github.com/dimitritsampiras/two-dots/issues"
   },
+  "lib": [
+    "es6"
+  ],
   "homepage": "https://github.com/dimitritsampiras/two-dots#readme",
-  "dependencies": {
-    "jest": "^25.4.0"
-  }
+  "devDependencies": {
+    "@types/jest": "^25.2.1",
+    "babel-jest": "^25.4.0",
+    "babel-preset-env": "^1.7.0",
+    "jest": "^25.4.0",
+    "ts-jest": "^25.4.0",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {}
 }
