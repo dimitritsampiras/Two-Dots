@@ -10,4 +10,4 @@
 /**
  * DotT type
  */
-export type DotT = "Red" | "Blue" | "Green" | "Orange";
+export type DotT = "R" | "B" | "G" | "O" | "P";
