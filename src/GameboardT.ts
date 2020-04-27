@@ -26,16 +26,13 @@ export class GameBoardT extends Matrix<DotT> {
   public updateBoard(area: Array<PointT>, elements: DotT[]): void {
     let p: PointT;
     let q: PointT;
-    let temp: Array<Array<DotT>> = [];
-
-    // make copy of board
-    for (let y = 0; y < this.height; y++) {
-      temp.push([]);
-      for (let x = 0; x < this.width; x++) {
-        temp[y].push(this.get(new PointT(x,y)));
-      }
-    }
-
+    let temp: Array<Array<DotT>>;
+    
+    if (!this.validArea(area))
+      throw new Error("Invalid Point Sequence")
+    
+    temp = this.cloneBoard();
+    
     for (let y = 0; y < this.height; y++) { 
       for (let x = 0; x < this.width; x++) {
         p = new PointT(x, y);
@@ -55,6 +52,53 @@ export class GameBoardT extends Matrix<DotT> {
         }
       }
     }
+
   }
-  
+
+  /**
+	 * Determines if sequence of PointT objects is valid based on position and type
+	 * @param area sequence of points
+	 * @return boolean based on validity of point sequence
+	 */
+  public validArea(area: Array<PointT>): boolean {
+    let d: DotT;
+
+    if (area.length == 1 || area.length == 0) 
+      return false;
+    
+    d = this.get(area[0]);
+    for (let i = 1; i < area.length; i++) {
+      if (this.get(area[i]) != d) 
+        return false;
+      if (!area[i].isAdjacent(area[i - 1]))
+        return false;
+    }
+    return true;
+  }
+
+  public display(): void {
+    for (let y = 0; y < this.width; y++) {
+      let row = "";
+			for (let x = 0; x < this.height; x++) {
+        let p: PointT = new PointT(x, y);
+        row += this.get(p) + " ";
+			}
+			console.log(row);
+		}
+  }
+
+  /**
+   * Clones Board 
+   * @return copy of board
+   */
+  private cloneBoard(): Array<Array<DotT>> {
+    let c: Array<Array<DotT>> = [];
+    for (let y = 0; y < this.height; y++) {
+      c.push([]);
+      for (let x = 0; x < this.width; x++) {
+        c[y].push(this.get(new PointT(x,y)));
+      }
+    }
+    return c;
+  }
 }
