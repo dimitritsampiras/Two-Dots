@@ -57,7 +57,7 @@ export class GameBoardT extends Matrix<DotT> {
    * Determines if sequence of PointT objects is valid based on position and type
    * @param area sequence of points
    * @return boolean based on validity of point sequence
-  */
+   */
   public validArea(area: Array<PointT>): boolean {
     let d: DotT;
 
