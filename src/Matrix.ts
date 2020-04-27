@@ -37,6 +37,8 @@ export class Matrix<T> {
 	 * @return element T at point p
 	 */
   public get(p: PointT) : T {
+    if (!this.validPoint(p))
+      throw new Error("Invalid point");
     return this.m[p.y][p.x];
   }
 
@@ -66,11 +68,11 @@ export class Matrix<T> {
     
     for (let p of area) {
       if (!row) {
-        if (p.y < d.min) d.min = p.y;
-        if (p.y > d.max) d.max = p.y;
-      } else if (row && p.x == row) {
-        if (p.y < d.min) d.min = p.y;
-        if (p.y > d.max) d.max = p.y;
+        if (p.x < d.min) d.min = p.x;
+        if (p.x > d.max) d.max = p.x;
+      } else if (row && p.y == row) {
+        if (p.x < d.min) d.min = p.x;
+        if (p.x > d.max) d.max = p.x;
       }
     }
     
