@@ -14,7 +14,7 @@ import { DotT } from "./DotT";
  * @details extends Matrix class
  */
 export class GameBoardT extends Matrix<DotT> {
-
+  
   /**
    * @brief Constructor for Gamboard
    * @param g grid of DotT elements

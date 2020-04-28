@@ -5,8 +5,6 @@
  * @date April 24, 2020
  */
 
-
-
 /**
  * DotT type
  */
